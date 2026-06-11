@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maquette CRO — Page service · Charpentes Gardarein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--wood:#C96A1F;--wood-deep:#8C4A14;--char:#262320;--char-2:#332f2a;--green:#1C5E33;--cream:#F7F2EA;--cream-2:#EFE7DA;--ink:#34302b;--muted:#6b635a;--line:#e2d8c8;--shadow:0 18px 40px -18px rgba(38,35,32,.45)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Sans 3',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:72px}
+  h1,h2,h3,.disp{font-family:'Oswald',sans-serif;text-transform:uppercase;line-height:1.06;color:var(--char)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .tag{display:inline-block;font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--wood);border:1.5px solid var(--wood);padding:5px 12px;border-radius:2px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:15px;padding:14px 24px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:.2s}
+  .btn-primary{background:var(--wood);color:#fff;box-shadow:0 8px 20px -8px rgba(201,106,31,.7)}
+  .btn-primary:hover{background:var(--wood-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  .note{position:relative}
+  .note::after{content:attr(data-note);position:absolute;right:8px;top:-12px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.2);font-family:'Source Sans 3';text-transform:none;letter-spacing:0}
+
+  .topbar{background:var(--char);color:#cfc7bb;font-size:13.5px}
+  .topbar .wrap{display:flex;justify-content:flex-end;align-items:center;height:38px;gap:18px}
+  .topbar a{color:#fff;font-weight:700}
+  header{position:sticky;top:0;z-index:40;background:var(--cream);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo .mark{width:38px;height:38px;border-radius:6px;background:linear-gradient(135deg,var(--wood),var(--wood-deep));display:grid;place-items:center;color:#fff;font-family:'Oswald';font-weight:700;font-size:19px}
+  .logo b{font-family:'Oswald';font-weight:700;font-size:22px;color:var(--green)}
+  .logo small{display:block;font-family:'Oswald';font-weight:600;font-size:9.5px;letter-spacing:.2em;color:var(--wood);margin-top:-3px}
+  nav.main{display:flex;gap:24px;font-family:'Oswald';font-weight:600;text-transform:uppercase;font-size:14px}
+  nav.main a:hover{color:var(--wood)}
+  .btn-sm{padding:10px 18px;font-size:14px}
+  @media(max-width:960px){nav.main,.head-cta .btn{display:none}}
+
+  /* hero with CTA */
+  .hero{position:relative;background:linear-gradient(120deg,var(--char),var(--char-2));color:#fff;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.10;background-image:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 26px)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:54px 20px}
+  .hero h1{color:#fff;font-size:46px}
+  .hero .sub{font-size:17px;color:#e9e1d6;margin:16px 0 24px;max-width:520px}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-img{border-radius:12px;min-height:280px;background:linear-gradient(135deg,#5a4a39,#2f2620);box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero-img::after{content:"Réalisation Gardarein";position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,.4);color:#fff;font-size:12px;padding:6px 10px;border-radius:4px}
+  .breadcrumb{font-size:13px;color:#cdc4b7;margin-bottom:8px}
+  .breadcrumb a:hover{color:#fff}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;padding:36px 20px}.hero h1{font-size:34px}}
+
+  .strip{background:var(--green);color:#fff}
+  .strip .wrap{display:flex;justify-content:space-around;gap:14px;flex-wrap:wrap;padding:14px 20px;font-family:'Oswald';font-weight:600;text-transform:uppercase;font-size:13.5px}
+  .strip .s{display:flex;align-items:center;gap:8px}.strip svg{fill:#fff}
+
+  section{padding:54px 0}
+  .intro{max-width:780px}
+  .intro h2{font-size:30px}
+  .intro p{font-size:16.5px;color:var(--ink);margin-top:12px}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  .gallery .g{border-radius:10px;min-height:200px;box-shadow:var(--shadow)}
+  .gallery .g1{background:linear-gradient(135deg,#6b5a44,#3a2f24)}
+  .gallery .g2{background:linear-gradient(135deg,#7d6a4f,#473829)}
+  .gallery .g3{background:linear-gradient(135deg,#5e5440,#352c22)}
+  @media(max-width:660px){.gallery{grid-template-columns:1fr 1fr}}
+
+  .steps{background:var(--cream-2)}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
+  .stp{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .stp .n{font-family:'Oswald';font-weight:700;font-size:32px;color:var(--wood)}
+  .stp h3{font-size:19px;margin:6px 0 8px}
+  .stp p{font-size:14.5px;color:var(--ink)}
+  @media(max-width:760px){.steps-grid{grid-template-columns:1fr}}
+
+  .specs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .specs h2{font-size:26px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  td{padding:11px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:700;color:var(--char);width:42%}
+  .check{list-style:none}
+  .check li{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:14.5px}
+  .check svg{flex:0 0 auto;margin-top:3px;fill:var(--wood)}
+  @media(max-width:760px){.specs .wrap{grid-template-columns:1fr;gap:22px}}
+
+  /* contextual CTA band */
+  .ctaband{background:var(--wood);color:#fff;border-radius:14px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow)}
+  .ctaband h3{color:#fff;font-size:24px}
+  .ctaband p{color:#fff3e9;font-size:15px;margin-top:4px}
+  .ctaband .btn-white{background:#fff;color:var(--wood-deep)}
+  .ctaband .phone{font-family:'Oswald';font-weight:700;font-size:22px;color:#fff;display:inline-flex;gap:8px;align-items:center}
+
+  footer{background:var(--char);color:#b3aa9d;padding:40px 0 24px;font-size:14px;margin-top:10px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer b{color:#fff}
+  .badges{display:flex;gap:10px}.badges .b{background:#332f2a;border:1px solid #44403a;border-radius:6px;padding:7px 11px;font-family:'Oswald';font-weight:600;font-size:12px;color:#fff}
+
+  .mobilebar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px -10px rgba(0,0,0,.25);padding:9px 12px;gap:10px}
+  .mobilebar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Oswald';font-weight:600;text-transform:uppercase;font-size:15px;padding:13px;border-radius:6px}
+  .mobilebar .call{background:var(--green);color:#fff}.mobilebar .quote{background:var(--wood);color:#fff}
+  @media(max-width:960px){.mobilebar{display:flex}}
+  .mock-banner{background:#222;color:#ffd9b3;text-align:center;font-size:12.5px;padding:7px 14px}.mock-banner b{color:#fff}
+</style>
+</head>
+<body>
+<div class="mock-banner">★ Maquette « design idéal » — page <b>service</b> (Charpentes traditionnelles). CTA dans le hero, CTA contextuels, réassurance, bon contraste.</div>
+
+<div class="topbar"><div class="wrap"><span>Lun-Ven · 8h-12h / 13h30-17h30</span><span><a href="tel:0553500125">📞 05 53 50 01 25</a></span></div></div>
+
+<header><div class="wrap">
+  <div class="logo"><div class="mark">G</div><div><b>GARDAREIN</b><small>FABRICANT · DEPUIS 1928</small></div></div>
+  <nav class="main"><a href="#">Accueil</a><a href="#">Notre expertise</a><a href="#">Nos garanties</a><a href="#">Avis</a><a href="#">Contact</a></nav>
+  <div class="head-cta"><a class="btn btn-primary btn-sm" href="#devis">Devis gratuit</a></div>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="breadcrumb"><a href="#">Accueil</a> › <a href="#">Notre expertise</a> › Charpentes traditionnelles</div>
+      <span class="tag" style="border-color:#f0c79e;color:#f0c79e">Notre expertise</span>
+      <h1 style="margin-top:14px">Charpentes traditionnelles</h1>
+      <p class="sub">Fermes à couple, solivage, colombage, lucarnes, poteaux-poutres, hangars… La précision du numérique, la tradition des assemblages — fabriqués dans notre atelier du Périgord.</p>
+      <div class="cta note" data-note="CTA présent dans le hero">
+        <a class="btn btn-primary" href="#devis">Devis pour ma charpente →</a>
+        <a class="btn btn-ghost" href="tel:0553500125">📞 05 53 50 01 25</a>
+      </div>
+    </div>
+    <div class="hero-img"></div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <div class="s"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5z"/></svg>Bureau d'étude intégré</div>
+  <div class="s"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5z"/></svg>Bois PEFC jusqu'à 20 m</div>
+  <div class="s"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 13l1-5h12l3 4h2v4h-2"/></svg>Livraison &amp; grutage</div>
+  <div class="s"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7z"/></svg>Devis sous 48h</div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="intro">
+    <h2>Une charpente conçue et fabriquée sur-mesure</h2>
+    <p>Notre bureau d'étude conçoit chaque projet sur logiciel métier (notes de calcul, plans de pose détaillés). Toutes les pièces sont façonnées sur nos centres d'usinage numérique, puis repérées pour un montage sans surprise sur votre chantier.</p>
+  </div>
+  <div class="gallery">
+    <div class="g g1"></div><div class="g g2"></div><div class="g g3"></div>
+  </div>
+</div></section>
+
+<section class="steps"><div class="wrap">
+  <span class="tag">Notre méthode</span>
+  <h2 style="font-size:28px;margin-top:10px">De l'étude au montage, un seul interlocuteur</h2>
+  <div class="steps-grid note" data-note="Texte lisible (contraste corrigé)">
+    <div class="stp"><div class="n">01</div><h3>Bureau d'étude</h3><p>Conception, dimensionnement, notes de calcul et plans de pose réalisés en interne.</p></div>
+    <div class="stp"><div class="n">02</div><h3>Fabrication atelier</h3><p>Façonnage numérique des assemblages, perçage et traitement du bois certifié PEFC.</p></div>
+    <div class="stp"><div class="n">03</div><h3>Livraison &amp; pose</h3><p>Livraison, grutage et appui au montage partout dans le Sud-Ouest. SAV réactif.</p></div>
+  </div>
+</div></section>
+
+<section class="specs"><div class="wrap">
+  <div>
+    <h2>Capacité de production</h2>
+    <table>
+      <tr><td>Sections</td><td>50 × 50 mm jusqu'à 300 × 625 mm</td></tr>
+      <tr><td>Longueurs de bois</td><td>De 0,60 m à 20 m</td></tr>
+      <tr><td>Essences</td><td>Épicéa, Douglas, Pin, Chêne, exotiques…</td></tr>
+      <tr><td>Bois techniques</td><td>KVH, lamellé-collé, contrecollé</td></tr>
+      <tr><td>Ferrures</td><td>Intégration de tous les organes de fixation</td></tr>
+    </table>
+  </div>
+  <div>
+    <h2>Produits complémentaires</h2>
+    <ul class="check">
+      <li><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7z"/></svg>Ancrages : équerres, sabots, pieds de poteaux…</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7z"/></svg>Poutres lamellé-collé, KVH, contrecollé, poutres en I / LVL</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7z"/></svg>Pare-pluie, frein-vapeur, isolation</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7z"/></svg>Liteaux, bardage, lambris, lambourde, bandeaux PVC</li>
+    </ul>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="ctaband" id="devis">
+    <div>
+      <h3>Un projet de charpente traditionnelle&nbsp;?</h3>
+      <p>Recevez un devis gratuit et personnalisé sous 48h — sans engagement.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <a class="btn btn-white" href="#">Demander mon devis</a>
+      <a class="phone" href="tel:0553500125">📞 05 53 50 01 25</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><b>GARDAREIN</b> — Fabricant de charpentes depuis 1928 · Le Ponteil, 24120 Pazayac</div>
+  <div class="badges"><span class="b">PEFC</span><span class="b">FFB</span><span class="b">★ 4,8/5</span></div>
+</div></footer>
+
+<div class="mobilebar">
+  <a class="call" href="tel:0553500125">📞 Appeler</a>
+  <a class="quote" href="#devis">Devis gratuit</a>
+</div>
+</body>
+</html>
