@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charpentes industrielles / fermettes — Charpentes Gardarein</title>
+<meta name="description" content="Charpentes industrielles (fermettes) par Gardarein : bureau d'études, fabrication maîtrisée, volumes. Devis gratuit sous 48 h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1b5e3c; --green-d:#0f3d2c; --green-l:#2f7d54;
+    --ochre:#d8810f; --ochre-d:#b86a07;
+    --paper:#f7f3ec; --paper-2:#efe9de; --card:#ffffff;
+    --ink:#241f1a; --muted:#6f6a62; --line:#e6e0d6; --wood:#b07a3c;
+    --shadow:0 14px 40px -18px rgba(15,61,44,.45); --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.dspl{font-family:'Oswald',sans-serif;font-weight:600;line-height:1.08;letter-spacing:.5px;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .eyebrow{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:600;color:var(--ochre)}
+  :focus-visible{outline:3px solid var(--ochre);outline-offset:2px;border-radius:6px}
+  p{max-width:70ch}
+
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;font-weight:600;font-size:.95rem;padding:.85rem 1.5rem;border-radius:10px;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+  .btn-primary{background:var(--ochre);color:#fff;box-shadow:0 8px 22px -8px rgba(216,129,15,.7)}
+  .btn-primary:hover{background:var(--ochre-d);transform:translateY(-2px)}
+  .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-d);transform:translateY(-2px)}
+  .btn-outline{border-color:var(--green);color:var(--green-d)}.btn-outline:hover{background:var(--green);color:#fff}
+
+  /* HEADER + NAV with dropdown */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar{background:var(--green-d);color:#cfe3d6;font-size:.8rem}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;gap:1rem;flex-wrap:wrap}
+  .topbar a{color:#fff;font-weight:600}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0;gap:1rem}
+  .logo{display:flex;align-items:center;gap:.6rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:1px;color:var(--green-d);text-transform:uppercase}
+  .logo .mark{width:40px;height:34px}
+  .logo small{display:block;font-size:.55rem;letter-spacing:4px;color:var(--ochre);text-align:center;margin-top:-3px}
+  .menu{display:flex;gap:1.4rem;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:.9rem;font-weight:500;align-items:center}
+  .menu > a, .menu > .dd > a{padding:.3rem 0;border-bottom:2px solid transparent;display:inline-block}
+  .menu > a:hover, .menu > .dd > a:hover{border-color:var(--ochre)}
+  .menu a.active{border-color:var(--ochre);color:var(--green-d)}
+  .dd{position:relative}
+  .dd > a::after{content:" ▾";font-size:.7em;color:var(--ochre)}
+  .dd-menu{position:absolute;top:100%;left:-12px;min-width:248px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:.5rem;display:none;z-index:60}
+  .dd:hover .dd-menu, .dd:focus-within .dd-menu{display:block}
+  .dd-menu a{display:block;padding:.6rem .7rem;border-radius:8px;font-size:.84rem;letter-spacing:.5px;color:var(--ink)}
+  .dd-menu a:hover{background:var(--paper-2);color:var(--green-d)}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .phone-lg{font-family:'Oswald',sans-serif;font-weight:600;color:var(--green-d);font-size:1.12rem;white-space:nowrap}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:3px;background:var(--green-d);border-radius:2px}
+  .mpanel{display:none;border-top:1px solid var(--line);background:var(--paper)}
+  .mpanel.open{display:block}
+  .mpanel a{display:block;padding:.8rem 0;border-bottom:1px solid var(--line);font-family:'Oswald';text-transform:uppercase;letter-spacing:1px;font-size:.92rem}
+  .mpanel a.sub{padding-left:1rem;font-size:.82rem;color:var(--muted)}
+
+  /* PAGE HERO (inner pages) */
+  .phero{background:radial-gradient(120% 120% at 100% 0,#21694a 0,var(--green-d) 65%);color:#fff}
+  .phero .wrap{padding:2.8rem 0 3rem}
+  .phero .crumb{font-size:.8rem;color:#a9c6b6;margin-bottom:.8rem}
+  .phero .crumb a:hover{color:#fff}
+  .phero h1{font-size:clamp(2rem,4vw,3.1rem);font-weight:700}
+  .phero h1 .am{color:var(--ochre)}
+  .phero p{color:#dbe7df;margin-top:.9rem;font-size:1.05rem}
+  .phero .actions{margin-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap}
+
+  /* HOME HERO */
+  .hero{position:relative;background:radial-gradient(120% 100% at 100% 0,#21694a 0,var(--green-d) 60%);color:#fff;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:4rem 0 4.4rem}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:700}
+  .hero h1 .am{color:var(--ochre)}
+  .hero p.sub{font-family:'Inter';text-transform:none;letter-spacing:0;font-size:1.08rem;color:#dbe7df;margin:1.1rem 0 1.4rem;max-width:48ch}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+  .chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:.35rem .7rem;border-radius:999px;font-size:.82rem;color:#eaf2ec}
+  .chip b{color:#fff}
+  .hero-illu{position:relative}.hero-illu svg{width:100%;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.35))}
+  .illu-tag{position:absolute;background:var(--ochre);color:#fff;font-family:'Oswald';text-transform:uppercase;letter-spacing:1px;font-size:.72rem;font-weight:600;padding:.3rem .6rem;border-radius:6px}
+
+  /* QUICK FORM */
+  .quote-card{background:var(--card);color:var(--ink);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);border-top:4px solid var(--ochre)}
+  .quote-card h3{font-size:1.3rem;color:var(--green-d)}
+  .quote-card .lead-note{font-family:'Inter';text-transform:none;letter-spacing:0;font-size:.85rem;color:var(--muted);margin:.2rem 0 1rem}
+  .field{margin-bottom:.7rem}
+  .field label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.25rem}
+  .field select,.field input,.field textarea{width:100%;padding:.72rem .8rem;border:1.5px solid var(--line);border-radius:9px;font:inherit;font-size:.95rem;background:#fff}
+  .field select:focus,.field input:focus,.field textarea:focus{border-color:var(--green)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .reassure-mini{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);margin-top:.7rem;justify-content:center}
+  .ok{display:none;color:var(--green);font-weight:600;text-align:center;margin-top:.6rem}
+
+  /* TRUST BAR */
+  .trust{background:var(--card);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.1rem 0}
+  .trust .item{display:flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:600;color:var(--green-d)}
+  .trust .item .n{font-family:'Oswald';font-size:1.5rem;color:var(--ochre);line-height:1}
+
+  section.block{padding:4rem 0}
+  .sec-head{max-width:660px;margin-bottom:2.2rem}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem);color:var(--green-d);margin:.4rem 0 .5rem}
+  .sec-head p{color:var(--muted)}
+  .lead{font-size:1.1rem;color:var(--ink)}
+
+  /* CARD GRIDS */
+  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .prod{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px -22px rgba(15,61,44,.5);border:1px solid var(--line);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+  .prod:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .ph{aspect-ratio:4/3;background:linear-gradient(135deg,#e9dcc6,#cdb389);position:relative;display:flex;align-items:flex-end;color:#5a4423}
+  .ph::after{content:attr(data-ph);position:absolute;inset:auto .8rem .7rem;font-size:.72rem;background:rgba(255,255,255,.78);padding:.2rem .5rem;border-radius:5px;font-weight:600}
+  .ph svg{position:absolute;inset:0;margin:auto;width:52%;height:52%;opacity:.5}
+  .prod .body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;flex:1}
+  .prod h3{font-size:1.28rem;color:var(--green-d)}
+  .prod p{font-size:.92rem;color:var(--muted);margin:.4rem 0 .9rem}
+  .prod a.more{font-family:'Oswald';text-transform:uppercase;letter-spacing:1px;font-size:.82rem;font-weight:600;color:var(--ochre);margin-top:auto}
+
+  /* FEATURES */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .feature{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;box-shadow:0 10px 30px -24px rgba(15,61,44,.5)}
+  .feature .ic{width:46px;height:46px;border-radius:11px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.7rem}
+  .feature h3{font-size:1.12rem;color:var(--green-d);margin-bottom:.3rem}
+  .feature p{font-size:.92rem;color:var(--muted)}
+
+  /* TWO COL prose */
+  .twocol{display:grid;grid-template-columns:1.05fr .95fr;gap:2.6rem;align-items:center}
+  .checklist{list-style:none;display:grid;gap:.55rem;margin-top:1rem}
+  .checklist li{padding-left:1.6rem;position:relative}
+  .checklist li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
+  /* STEPS band */
+  .steps-band{background:var(--green-d);color:#fff}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:1.4rem}
+  .step .num{font-family:'Oswald';font-size:2.6rem;color:var(--ochre);line-height:1}
+  .step h3{font-size:1.18rem;margin:.3rem 0 .4rem}
+  .step p{color:#cfe0d5;font-size:.92rem}
+  .kit-note{margin-top:1.7rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;font-size:.95rem}
+  .kit-note b{color:var(--ochre)}
+
+  /* SPEC TABLE */
+  .spec{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .spec th,.spec td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--line);font-size:.95rem}
+  .spec th{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;color:var(--green-d);font-weight:600;width:32%;background:var(--paper-2)}
+  .spec tr:last-child td,.spec tr:last-child th{border-bottom:0}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .gal .ph{aspect-ratio:1;border-radius:12px}
+  .gal .ph.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .gal-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .gal-3 .ph{aspect-ratio:4/3;border-radius:12px}
+
+  /* REVIEWS */
+  .reviews{display:grid;grid-template-columns:2fr 1fr;gap:1.6rem;align-items:center}
+  .rev-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:1.3rem 1.5rem}
+  .rev-card p{font-size:1.05rem}
+  .rev-card .who{margin-top:.7rem;font-weight:600;color:var(--green-d);font-size:.9rem}
+  .stars{color:var(--ochre);letter-spacing:2px}
+  .rev-slot{background:var(--paper-2);border:1.5px dashed #c8bda6;border-radius:12px;padding:1.2rem;font-size:.85rem;color:var(--muted)}
+
+  /* FAQ */
+  details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:.7rem;overflow:hidden}
+  summary{cursor:pointer;padding:1rem 1.2rem;font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:1rem;color:var(--green-d);list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--ochre);font-size:1.4rem;font-weight:700}
+  details[open] summary::after{content:"–"}
+  details .ans{padding:0 1.2rem 1.1rem;color:var(--muted);font-size:.95rem}
+
+  /* CTA BAND */
+  .cta-band{background:linear-gradient(120deg,var(--ochre),var(--ochre-d));color:#fff;border-radius:18px;padding:2.6rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .cta-band h2{font-size:clamp(1.6rem,2.6vw,2.2rem)}.cta-band p{color:#fff3e2}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+  .info-row{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.9rem}
+  .info-row .ic{color:var(--ochre);font-size:1.2rem}
+  .map{aspect-ratio:16/9;background:linear-gradient(135deg,#22513c,#143527);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#9ec0ab;font-size:.85rem;border:1px solid #2c6147;text-align:center;padding:1rem}
+
+  /* FOOTER */
+  footer{background:var(--green-d);color:#cfe0d5;padding:3rem 0 1.4rem;font-size:.92rem}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem}
+  footer h4{font-family:'Oswald';text-transform:uppercase;letter-spacing:1px;color:#fff;font-size:1rem;margin-bottom:.8rem}
+  footer p{margin-bottom:.35rem}
+  footer a:hover{color:#fff}
+  .fbot{border-top:1px solid #2c6147;margin-top:2rem;padding-top:1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;color:#9ec0ab;font-size:.82rem}
+
+  /* MOBILE STICKY BAR */
+  .mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:.55rem .7rem;gap:.6rem;box-shadow:0 -10px 24px -16px rgba(0,0,0,.4)}
+  .mbar a{flex:1;justify-content:center;font-size:.92rem;padding:.8rem}
+
+  @media(max-width:920px){
+    .hero .wrap{grid-template-columns:1fr;gap:2rem;padding:2.4rem 0 2.8rem}.hero-illu{order:-1}
+    .prods,.steps,.features,.twocol,.contact-grid,.reviews{grid-template-columns:1fr}
+    .gal,.gal-3{grid-template-columns:1fr 1fr}.gal .ph.big{grid-column:span 2}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .menu,.phone-lg{display:none}.burger{display:flex}.nav-cta .btn{display:none}
+    .mbar{display:flex}body{padding-bottom:64px}.cta-band{padding:1.8rem}
+  }
+  @media(max-width:520px){.fgrid{grid-template-columns:1fr}.grid2{grid-template-columns:1fr 1fr}.gal,.gal-3{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar"><div class="wrap">
+    <span>Atelier ouvert du lundi au vendredi · 8h–12h / 13h30–17h30 · Pazayac (24)</span>
+    <span>Fabricant depuis 1928 · <a href="tel:0553500125">05 53 50 01 25</a></span>
+  </div></div>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Accueil Gardarein"><svg class="mark" viewBox="0 0 48 40" aria-hidden="true"><g fill="none" stroke-width="3" stroke-linecap="round"><path d="M4 24 L24 8 L44 24" stroke="#1b5e3c"/><path d="M9 24 L24 13 L39 24" stroke="#d8810f"/><path d="M14 24 L24 18 L34 24" stroke="#1b5e3c"/></g></svg><span>Gardarein<small>FABRICANT</small></span></a>
+    <nav class="menu" aria-label="Principal"><a href="index.html" class="">Accueil</a><a href="entreprise.html" class="">L'entreprise</a><div class="dd"><a href="expertises.html" class="active">Notre expertise</a><div class="dd-menu"><a href="abris-carport-pergolas.html">Abris, carport, pergolas</a><a href="charpentes-traditionnelles.html">Charpentes traditionnelles</a><a href="charpentes-industrielles.html">Charpentes industrielles</a><a href="ossature-bois.html">Murs ossature bois</a><a href="produits-complementaires.html">Produits complémentaires</a></div></div><a href="garanties.html" class="">Nos garanties</a><a href="realisations.html" class="">Réalisations</a><a href="contact.html" class="">Contact</a></nav>
+    <div class="nav-cta">
+      <span class="phone-lg">05 53 50 01 25</span>
+      <a class="btn btn-primary" href="devis.html">Devis gratuit</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var p=document.getElementById('mp');var o=p.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mpanel wrap" id="mp"><a href="index.html">Accueil</a><a href="entreprise.html">L'entreprise</a><a href="expertises.html">Notre expertise</a><a class="sub" href="abris-carport-pergolas.html">– Abris, carport, pergolas</a><a class="sub" href="charpentes-traditionnelles.html">– Charpentes traditionnelles</a><a class="sub" href="charpentes-industrielles.html">– Charpentes industrielles</a><a class="sub" href="ossature-bois.html">– Murs ossature bois</a><a class="sub" href="produits-complementaires.html">– Produits complémentaires</a><a href="garanties.html">Nos garanties</a><a href="realisations.html">Réalisations</a><a href="contact.html">Contact</a><a href="devis.html">Demander un devis</a></div>
+</header>
+<section class="phero"><div class="wrap">
+      <div class="crumb"><a href="index.html">Accueil</a> › <a href='expertises.html'>Notre expertise</a> › Charpentes</div>
+      <h1>Charpentes <span class='am'>industrielles</span></h1><p>Fermettes industrielles dimensionnées et fabriquées en série maîtrisée.</p><div class="actions"><a class="btn btn-primary" href="devis.html">Devis gratuit</a><a class="btn btn-ghost" href="tel:0553500125">📞 05 53 50 01 25</a></div>
+    </div></section>
+<section class="block"><div class="wrap twocol">
+  <div><span class="eyebrow">En bref</span><h2 style="color:var(--green-d);font-size:clamp(1.5rem,2.4vw,2rem);margin:.4rem 0 .6rem">La fermette, efficace et économique</h2><p>Pour les constructions neuves, la charpente industrielle (fermette) offre un excellent rapport performance/prix. Nos équipes dimensionnent et fabriquent vos fermettes selon vos plans.</p></div>
+  <div><table class="spec"><tr><th>Applications</th><td>Maisons neuves, combles perdus ou aménageables</td></tr><tr><th>Système</th><td>Fermettes à connecteurs</td></tr><tr><th>Essences</th><td>Épicéa traité</td></tr><tr><th>Livraison</th><td>Livré et grutté sur chantier</td></tr></table></div>
+</div></section>
+<section class="block" style="background:var(--paper-2)"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Points forts</span><h2>Pourquoi nous confier ce projet</h2></div>
+  <div class="features"><div class="feature"><div class="ic">⚙️</div><h3>Fabrication maîtrisée</h3><p>Connecteurs et assemblages contrôlés, production régulière.</p></div><div class="feature"><div class="ic">📊</div><h3>Dimensionnement</h3><p>Études et notes de calcul adaptées à votre projet.</p></div><div class="feature"><div class="ic">📦</div><h3>Volumes</h3><p>Capacité pour les chantiers de maisons individuelles et collectifs.</p></div></div>
+</div></section>
+<section class="block"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Réalisations</span><h2>Quelques chantiers</h2></div>
+  <div class="gal-3"><div class="ph" data-ph="Réalisation 1"></div><div class="ph" data-ph="Réalisation 2"></div><div class="ph" data-ph="Réalisation 3"></div></div>
+</div></section>
+<section class="block" style="padding-top:2rem"><div class="wrap"><div class="cta-band">
+      <div><h2>Prêt à concrétiser votre projet bois ?</h2><p>Devis gratuit sous 48 h. Parlez directement à un charpentier.</p></div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <a class="btn btn-green" href="devis.html">Demander mon devis</a>
+        <a class="btn btn-ghost" href="tel:0553500125" style="border-color:#fff">📞 05 53 50 01 25</a>
+      </div></div></div></section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:.6rem"><svg class="mark" viewBox="0 0 48 40" aria-hidden="true"><g fill="none" stroke-width="3" stroke-linecap="round"><path d="M4 24 L24 8 L44 24" stroke="#fff"/><path d="M9 24 L24 13 L39 24" stroke="#d8810f"/><path d="M14 24 L24 18 L34 24" stroke="#fff"/></g></svg><span>Gardarein</span></div>
+        <p style="color:#bcd4c4">Fabricant de charpentes et structures bois sur-mesure depuis 1928. Carports, pergolas, abris, charpente et ossature bois.</p>
+      </div>
+      <div>
+        <h4>Notre expertise</h4>
+        <p><a href="abris-carport-pergolas.html">Abris, carport, pergolas</a></p>
+        <p><a href="charpentes-traditionnelles.html">Charpentes traditionnelles</a></p>
+        <p><a href="charpentes-industrielles.html">Charpentes industrielles</a></p>
+        <p><a href="ossature-bois.html">Murs ossature bois</a></p>
+        <p><a href="produits-complementaires.html">Produits complémentaires</a></p>
+      </div>
+      <div>
+        <h4>L'atelier</h4>
+        <p>Le Ponteil<br>24120 Pazayac</p>
+        <p>Lun–Ven · 8h–12h / 13h30–17h30</p>
+        <p><a href="tel:0553500125"><b style="color:#fff">05 53 50 01 25</b></a></p>
+        <p><a href="garanties.html">Nos garanties</a> · <a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Nous trouver</h4>
+        <div class="map">📍 Carte — Pazayac (24)<br>entre Brive &amp; Périgueux (A89/A20)</div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 Charpentes Gardarein — Maquette de refonte (proposition).</span>
+      <span>Membre FFB · Bois PEFC</span>
+    </div>
+  </div>
+</footer>
+<div class="mbar">
+  <a class="btn btn-green" href="tel:0553500125">📞 Appeler</a>
+  <a class="btn btn-primary" href="devis.html">Devis gratuit</a>
+</div>
+</body>
+</html>
